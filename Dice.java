@@ -1,14 +1,8 @@
 import java.util.Random;
 public class Dice 
 {
-	final int  ONE = 1;
-	final int TWO = 2;
-	final int THREE = 3;
-	final int FOUR = 4;
-	final int FIVE = 5;
-	final int SIX = 6;
 	private Random r;
-	private int[] num = new int[5];
+	private int[] num = new int[6];
 
 	public Dice(int seed)
 	{
@@ -18,65 +12,63 @@ public class Dice
 
 	public String roll()
 	{
-		int side = r.nextInt(7);
+		int side = r.nextInt(6);
 
-		if(side == ONE)
+		if(side == 0)
 		{
-			setNum(side);
+			num[0]++;
 			return "1";
 		}
 
-		else if(side == TWO)
+		else if(side == 1)
 		{
-			setNum(side);
+			num[1]++;
 			return "2";
 		}
 
-		else if(side == THREE)
+		else if(side == 2)
 		{
-			setNum(side);
+			num[2]++;
 			return "3";
 		}
 
-		else if(side == FOUR)
+		else if(side == 3)
 		{
-			setNum(side);
+			num[3]++;
 			return "4";
 		}
 
-		else if(side == FIVE)
+		else if(side == 4)
 		{
-			setNum(side);
+			num[4]++;
 			return "5";
 		}
 
-		else if(side == SIX)
+		else
 		{
-			setNum(side);
+			num[5]++;
 			return "6";
 		}
 
-	return "what";
-	}
-
-
-
-	public String printStats()
-	{
-		return "1: " + num[1]; 
-	}
-
-	private void setNum(int value)
-	{
-		num[value]++;
-	}
 	
-public void reset()
-{
-	for(int i=0; i<num.length; i++)
-	{
-		num[i] = 0;
 	}
-}
+
+
+
+	public void printStats()
+		{
+			for(int i=0; i<num.length; i++)
+			{
+				System.out.println(i+1 + ": " + num[i]);
+			}  
+		}
+		
+	public void reset()
+	{
+		for(int i=0; i<num.length; i++)
+		{
+			num[i] = 0;
+		}
+	}
 
 }
